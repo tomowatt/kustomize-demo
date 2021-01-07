@@ -1,0 +1,30 @@
+resources:
+- ./../base
+
+namespace: live
+namePrefix: live-
+
+commonLabels:
+  env: live
+
+images:
+- name: nginx
+  newTag: 1.12-alpine
+- name: redis
+  newTag: 3-alpine
+
+patches:
+- patch: |-
+    - op: replace
+      path: "/spec/template/spec/containers/0/resources/limits/memory"
+      value: "512Mi"
+  target:
+    kind: Deployment
+    name: nginx
+- patch: |-
+    - op: replace
+      path: "/spec/replicas"
+      value: 3
+  target:
+    kind: Deployment
+    name: nginx

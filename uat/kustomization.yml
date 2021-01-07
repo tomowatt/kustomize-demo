@@ -1,0 +1,14 @@
+resources:
+- ./../base
+
+namespace: uat
+namePrefix: uat-
+
+commonLabels:
+  env: uat
+
+images:
+- name: nginx
+  newTag: 1.17-alpine
+- name: redis
+  newTag: 5-alpine

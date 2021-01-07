@@ -1,0 +1,14 @@
+resources:
+- ./../base
+
+namespace: staging
+namePrefix: staging-
+
+commonLabels:
+  env: staging
+
+images:
+- name: nginx
+  newTag: 1.19.6-alpine
+- name: redis
+  newTag: 6.0.9-alpine

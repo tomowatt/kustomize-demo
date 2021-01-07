@@ -1,0 +1,3 @@
+resources:
+- ./deployments/nginx.yml
+- ./deployments/redis.yml
